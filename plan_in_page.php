@@ -24,7 +24,7 @@
     <div class="card">
         <div class="card-body row">
             <img class="col" src="img/<?php print_r($val['image']) ?>" alt="Card image">
-            <div class="col-8">
+            <div class="col-10">
                 <h2 class="card-title"><?php print_r($val['name']) ?></h2>
                 <p class="card-text"><?php print_r($val['description']) ?></p>
                 <p class="card-text"><i class="fas fa-users"></i> <?php print_r($val['min_players']) ?> - <?php print_r($val['max_players']) ?></p>

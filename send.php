@@ -3,7 +3,7 @@
 ?>
 <?php
 
-    $sql = 'SELECT * FROM `games` WHERE `id`='.$_POST["planGameID"].';';
+    $sql = "SELECT * FROM `games` WHERE `id`=".$_POST['planGameID'].";";
     $sth = $conn->prepare($sql);
     $sth->execute();
     $result = $sth->fetchall();
@@ -37,6 +37,4 @@
   $sql = "INSERT INTO `planned_games` (`id`, `spel_id`, `starttijd`, `eindtijd`, `spelduur`, `uitleggever`, `spelers`) VALUES (NULL, '".$_POST['planGameID']."', '".$startTijd[0].$startTijd[1]."', '".$eindTijd[0].$eindTijd[1]."', '".$speltijd."', '".$_POST['uitlegger']."', '".$_POST['spelers']."');";
   $sth = $conn->prepare($sql);
   $sth->execute();
-
-  //'INSERT INTO `planned_games` (`id`, `spel_id`, `starttijd`, `eindtijd`, `spelduur`, `uitleggever`, `spelers`) VALUES (NULL, '.$_POST["planGameID"].', '.$startTijd.', '.$eindTijd.', '.$speltijd.', "'.$_POST["uitlegger"].'", "'.$_POST["spelers"].'");';
 ?>
