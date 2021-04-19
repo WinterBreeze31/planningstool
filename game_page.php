@@ -1,3 +1,5 @@
+<?php include_once('resources/logic.php'); ?>
+
 <?php
     if(empty($_GET['id'])){
         $gameID = 6;
@@ -18,8 +20,32 @@
 
     str_replace(" ", PHP_EOL, $planInfo[0]['speler']);
     $spelers = explode(PHP_EOL, $planInfo[0]['spelers']);
-?>
 
+    if (strlen($planInfo[0]['starttijd']) == 3){
+      $planInfo[0]['starttijd'] = substr_replace($planInfo[0]['starttijd'], 0, 0, 0);
+  }
+
+  if (strlen($planInfo[0]['eindtijd']) == 3){
+    $planInfo[0]['eindtijd'] = substr_replace($planInfo[0]['eindtijd'], 0, 0, 0);
+  }
+
+  $planInfo[0]['starttijd'] = substr_replace($planInfo[0]['starttijd'], ':', 2, 0);
+  $planInfo[0]['eindtijd'] = substr_replace($planInfo[0]['eindtijd'], ':', 2, 0);
+
+?>
+ 
+<html>
+  <head>
+    <title>planningstool</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link rel="stylesheet" href='css/style.css'>
+  </head>
+  <body>
+
+  <?php
+    include_once("resources/navbar.php");
+  ?>
 <div class="card" style="width: 90%; margin: 0 auto;">
   <div class="card-body row">
 

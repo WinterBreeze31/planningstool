@@ -1,5 +1,5 @@
 <?php
-    include_once('../resources/logic.php');
+    include_once('resources/logic.php');
 ?>
 <?php
 

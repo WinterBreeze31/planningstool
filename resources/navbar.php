@@ -6,13 +6,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Geplande Spellen</a>
+        <a class="nav-link" href="planned_games.php">Geplande Spellen</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Agenda</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Plan een spel in</a>
+        <a class="nav-link" href="plan_in_page.php">Plan een spel in</a>
       </li>
     </ul>
   </div>
