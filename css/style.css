@@ -1,0 +1,28 @@
+.color-1{
+    background: #07BEB8;
+}
+.color-2{
+    background: #3DCCC7;
+}
+
+.color-3{
+    background: #68D8D6;
+}
+
+.color-4{
+    background: #9CEAEF;
+}
+
+.color-5{
+    background: #C4FFF9;
+}
+
+.border-round{
+    border-radius: 10px;
+}
+
+.border-grey{
+    border: lightgrey solid 1px;
+}
+
+
