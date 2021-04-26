@@ -19,11 +19,11 @@
         </div>
         <div class="form-group">
             <label for="uitlegger">Wie gaat de uitleg geven?</label>
-            <input required type="text" class="form-control color-5" name="uitlegger">
+            <input required type="text" class="form-control color-5" name="uitlegger" pattern="[a-zA-Z0-9]+">
         </div>
         <div class="form-group">
             <label for="spelers">Wie gaan er spelen?</label>
-            <textarea required  name="spelers" class="form-control color-5" style="height:200px; resize: none;"></textarea>
+            <textarea required  name="spelers" class="form-control color-5" style="height:200px; resize: none;" pattern="[a-zA-Z0-9]+"></textarea>
         </div>
         <div class="form-group">
             <input type="hidden" name="planGameID" value="<?php echo $_GET['spel_id']; ?>">

@@ -21,16 +21,7 @@
     str_replace(" ", PHP_EOL, $planInfo[0]['speler']);
     $spelers = explode(PHP_EOL, $planInfo[0]['spelers']);
 
-    if (strlen($planInfo[0]['starttijd']) == 3){
-      $planInfo[0]['starttijd'] = substr_replace($planInfo[0]['starttijd'], 0, 0, 0);
-  }
-
-  if (strlen($planInfo[0]['eindtijd']) == 3){
-    $planInfo[0]['eindtijd'] = substr_replace($planInfo[0]['eindtijd'], 0, 0, 0);
-  }
-
-  $planInfo[0]['starttijd'] = substr_replace($planInfo[0]['starttijd'], ':', 2, 0);
-  $planInfo[0]['eindtijd'] = substr_replace($planInfo[0]['eindtijd'], ':', 2, 0);
+   
 
 ?>
  
@@ -64,7 +55,39 @@
 
     <div class="col">
     <h4 class="card-title"><?php print_r($gameList[0]['name']); ?></h4>
-    <a href="#"><h6 class="card-subtitle mb-2 text-muted">Terug naar overzicht</h6></a>
+    <a href="planned_games.php"><h6 class="card-subtitle mb-2 text-muted">Terug naar overzicht</h6></a>
+
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+  Verwijder Afspraak
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body centered">
+        <h2 class="title">Weet je zeker dat je deze afspraak wilt verwijderen?</h2>
+        <form action="delete_game.php" method="post">
+          <input type="hidden" name="game_id" value="<?php print_r($planInfo[0]['id']) ?>">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
+          <input type="submit" class="btn btn-danger" value="Verwijder deze afspraak">
+        </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+   
     <br>
    
         <?php print_r($gameList[0]['description']); ?> 
@@ -97,3 +120,12 @@
 
 
 
+<script
+			  src="https://code.jquery.com/jquery-3.6.0.js"
+			  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+			  crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

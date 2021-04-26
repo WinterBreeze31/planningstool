@@ -25,17 +25,6 @@
             $sth->execute();
             $game = $sth->fetchall();
 
-            if (strlen($val['starttijd']) == 3){
-                $val['starttijd'] = substr_replace($val['starttijd'], 0, 0, 0);
-            }
-
-            if (strlen($val['eindtijd']) == 3){
-                $val['eindtijd'] = substr_replace($val['eindtijd'], 0, 0, 0);
-            }
-
-            $val['starttijd'] = substr_replace($val['starttijd'], ':', 2, 0);
-            $val['eindtijd'] = substr_replace($val['eindtijd'], ':', 2, 0);
-
             ?>
                 <div class="card">
                     <div class="card-body row">
