@@ -57,16 +57,16 @@
     <h4 class="card-title"><?php print_r($gameList[0]['name']); ?></h4>
     <a href="planned_games.php"><h6 class="card-subtitle mb-2 text-muted">Terug naar overzicht</h6></a>
 
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
   Verwijder Afspraak
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">afspraak verwijderen</h5>
         <button type="button" class="btn close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -85,8 +85,51 @@
   </div>
 </div>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editModal">
+  Bewerk deze Afspraak
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Bewerk Afspraak</h5>
+        <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      <form method="post" action="update.php" class="col-6 offset-3 ">
+        <div class="form-group">
+            <label for="startTime">start tijd</label>
+            <input required type="time" name="startTijd" class="form-control" value="<?php echo $planInfo[0]['starttijd'] ?>">
+        </div>
+        <div class="form-group">
+            <label for="uitlegger">Wie gaat de uitleg geven?</label>
+            <input required type="text" class="form-control " name="uitlegger" value="<?php echo $planInfo[0]['uitleggever'] ?>" pattern="[a-zA-Z0-9]+">
+        </div>
+        <div class="form-group">
+            <label for="spelers">Wie gaan er spelen?</label>
+            <textarea required  name="spelers" class="form-control "  style="height:200px; resize: none;" pattern="[a-zA-Z0-9]+"><?php echo $planInfo[0]['spelers'] ?></textarea>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="planGameID" value="<?php echo $planInfo[0]['spel_id']; ?>">
+            <input type="hidden" name="planID" value="<?php echo $planInfo[0]['id']; ?>">
+            <input type="submit" class="form-control btn btn-warning" value="Bewerk">
+        </div>
+    </form>
 
 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
+      </div>
+    </div>
+  </div>
+</div>
    
     <br>
    

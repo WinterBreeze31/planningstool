@@ -17,7 +17,8 @@
     }
 
 
-  $sql = "INSERT INTO `planned_games` (`id`, `spel_id`, `starttijd`, `eindtijd`, `spelduur`, `uitleggever`, `spelers`) VALUES (NULL, ".$_POST['planGameID'].", '".$_POST['startTijd']."', ADDTIME('".$_POST['startTijd']."', '".$speltijd[0].":".$speltijd[1]."'), '".$spelduur."', '".$_POST['uitlegger']."', '".$_POST['spelers']."');";
+  $sql = "UPDATE `planned_games` 
+  SET `starttijd` = '".$_POST['startTijd']."', `eindtijd` =  ADDTIME('".$_POST['startTijd']."', '".$speltijd[0].":".$speltijd[1]."'), `uitleggever` = '".$_POST['uitlegger']."', `spelers` = '".$_POST['spelers']."' WHERE `id` = '".$_POST['planID']."';";
   $sth = $conn->prepare($sql);
   $sth->execute();
 ?>
@@ -34,9 +35,9 @@
   ?>
 
 
-<div class="alert alert-success" role="alert">
-    <strong>Succes</strong> het spell is succesvol toegevoegt. klik op de knop om terug te keren naar de home pagina.
-    <a href="index.php"><button type="button" class="btn btn-success">Homepage</button></a>
+<div class="alert alert-warning" role="alert">
+    <strong>Succes</strong> het spell is succesvol bewerkt. klik op de knop om terug te keren naar de home pagina.
+    <a href="index.php"><button type="button" class="btn btn-warning">Homepage</button></a>
 </div>
 
 
